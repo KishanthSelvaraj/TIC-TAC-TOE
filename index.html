@@ -1,0 +1,142 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<style>
+body{
+  font-size: 50px;
+      background: gray;
+      background-repeat: no-repeat;
+      height: 500px
+}
+#tic{
+  margin: auto;
+  width: 50%;
+  border: 3px dashed darkred;
+  padding: 10px;
+ 
+}
+.tac,h1
+{
+ 
+ 
+  text-align: center;
+}
+h1{
+ background:black;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ font-style: italic;
+  font-size:40px
+}
+h1:hover{
+  font-size: 45px
+}
+</style>
+<body>
+  <h1>TIC TAC TOE</h1>
+<div id="tic">
+  <div id="1" class="tac">
+    
+  </div>
+  <br>
+  <div id="2" class="tac">
+    
+  </div>
+  <br>
+  <div id="3" class="tac">
+    
+  </div>
+</div>
+<script>
+  let a=document.querySelectorAll(".tac")
+  let b=document.getElementById("tic")
+  let k=1
+  for(let i=0;i<3;i++)
+  {
+    for(let j=0;j<3;j++)
+    {
+      let c=document.createElement("span")
+      c.class="tac"
+      c.innerHTML="-||"
+      c.value="-||"
+     //c.setAttribute("readonly",true)
+      a[i].appendChild(c)
+      let count=0
+      c.addEventListener("click",()=>
+      {
+        if(c.value=="-||")
+        {
+        if(k%2==0)
+        {
+          c.value="X||"
+         // c.setAttribute("readonly",true)
+         c.style.color="blue"
+          c.innerHTML=c.value
+          c.style.userSelect= "none";
+          
+          
+          
+        }
+        else 
+        {
+          c.value="O||"
+          c.style.color="red"
+          c.innerHTML=c.value
+          //c.removeEventListener("click",event)
+        }
+        k++;
+        ram()
+        }
+      }
+      )
+    }
+  }
+  function ram()
+  {
+  let l=a[0].querySelectorAll("span")
+  let m=a[1].querySelectorAll("span")
+  let n=a[2].querySelectorAll("span")
+  /*console.log(l[1].value)
+  console.log(m[1].value)
+  console.log(n[1].value)*/
+for(i=0;i<3;i++)
+{
+  if(((l[i].value=="X||")&&(m[i].value=="X||")&&(n[i].value=="X||"))||((l[0].value=="X||")&&(m[1].value=="X||")&&(n[2].value=="X||"))||((l[2].value=="X||")&&(m[1].value=="X||")&&(n[0].value=="X||")))
+  {
+    console.log("X wins")
+    break;
+    
+  }
+      
+    if(((l[i].value=="O||")&&(m[i].value=="O||")&&(n[i].value=="O||"))||((l[0].value=="O||")&&(m[1].value=="O||")&&(n[2].value=="O||"))||((l[2].value=="O||")&&(m[1].value=="O||")&&(n[0].value=="O||")))
+  {
+    console.log("O wins")
+    break;
+  }
+      
+  }
+  for(i=0;i<3;i++)
+  {
+    if(((l[0].value=="X||")&&(l[1].value=="X||")&&(l[2].value=="X||"))||((m[0].value=="X||")&&(m[1].value=="X||")&&(m[2].value=="X||"))||((n[0].value=="X||")&&(n[1].value=="X||")&&(n[2].value=="X||")))
+    {
+      console.log("X wins")
+      break;
+    }
+    if(((l[0].value=="O||")&&(l[1].value=="O||")&&(l[2].value=="O||"))||((m[0].value=="O||")&&(m[1].value=="O||")&&(m[2].value=="O||"))||((n[0].value=="O||")&&(n[1].value=="O||")&&(n[2].value=="O||")))
+    {
+      console.log("O wins")
+      break;
+    }
+    
+  }
+  
+  }
+  
+</script>
+</body>
+
+</html>
